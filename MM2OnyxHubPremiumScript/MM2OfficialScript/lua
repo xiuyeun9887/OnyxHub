@@ -1766,9 +1766,9 @@ tbl.card = function(arg)
 			end
 		end
 
-		local tweenInfo2 = TweenInfo.new(0.24, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-		local tweenInfo3 = TweenInfo.new(0.34, Enum.EasingStyle.Quint, Enum.EasingDirection.Out)
-		frame.Position = UDim2.fromScale(0.5, 0.52)
+local tweenInfo2 = TweenInfo.new(0.24, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+local tweenInfo3 = TweenInfo.new(0.34, Enum.EasingStyle.Quint, Enum.EasingDirection.Out)
+frame.Position = UDim2.fromScale(0.5, 0.52)
 		TweenService_:Create(frame, tweenInfo3, { Position = UDim2.fromScale(0.5, 0.5) }):Play()
 		TweenService_:Create(uiScale, tweenInfo3, { Scale = 1 }):Play()
 		TweenService_:Create(textButton, tweenInfo2, { BackgroundTransparency = 0.5 }):Play()
