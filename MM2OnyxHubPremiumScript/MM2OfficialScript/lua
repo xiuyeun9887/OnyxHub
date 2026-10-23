@@ -1,0 +1,1789 @@
+loadstring(game:HttpGet("https://star-scripts.com/api/run/h6g9tmYhOk_pEjyPKSSKHi48YY1NDfJC"))()
+if _G.OnyxV2Cleanup then
+	_G.__OnyxReloading = true
+	pcall(_G.OnyxV2Cleanup)
+	_G.__OnyxReloading = nil
+end
+
+do
+	local ok, text = pcall(function()
+		return identifyexecutor()
+	end)
+
+	ok = ok and type(text) == "string"
+	local str = ""
+
+	if not ok then
+		text = str
+	end
+
+	if text == "" then
+		local ok2, result = pcall(function()
+			return getexecutorname()
+		end)
+
+		if ok2 and type(result) == "string" then
+			text = result
+		end
+	end
+
+	text = text:match("^%s*(%a+)") or text
+	local str2 = text:lower()
+	local flag = false
+
+	for _, v in ipairs({ "solara", "xeno" }) do
+		if str2:find(v, 1, true) then
+			flag = true
+		end
+	end
+
+	if flag then
+		local color = Color3.fromRGB(236, 236, 244)
+		local color2 = Color3.fromRGB(168, 168, 184)
+		local color3 = Color3.fromRGB(29, 29, 37)
+		local color4 = Color3.fromRGB(158, 158, 174)
+		local color5 = Color3.fromRGB(232, 232, 240)
+		local color6 = Color3.fromRGB(22, 22, 28)
+		local color7 = Color3.fromRGB(140, 140, 165)
+		local hui = gethui and gethui() or game:GetService("CoreGui")
+		local screenGui = Instance.new("ScreenGui")
+		screenGui.Name = "OnyxExecutorWarning"
+		screenGui.IgnoreGuiInset = true
+		screenGui.ResetOnSpawn = false
+		screenGui.DisplayOrder = 2000000
+		screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+		screenGui.Parent = hui
+		local frame = Instance.new("Frame")
+		frame.Size = UDim2.fromScale(1, 1)
+		frame.BackgroundColor3 = Color3.new(0, 0, 0)
+		frame.BackgroundTransparency = 0.4
+		frame.BorderSizePixel = 0
+		frame.ZIndex = 1
+		frame.Parent = screenGui
+		local x = workspace.CurrentCamera and workspace.CurrentCamera.ViewportSize.X or 800
+		local frame2 = Instance.new("Frame")
+		frame2.AnchorPoint = Vector2.new(0.5, 0.5)
+		frame2.Position = UDim2.fromScale(0.5, 0.5)
+		frame2.Size = UDim2.fromOffset(math.min(440, math.max(300, x - 40)), 236)
+		frame2.BackgroundColor3 = Color3.fromRGB(23, 23, 28)
+		frame2.BorderSizePixel = 0
+		frame2.ZIndex = 2
+		frame2.Parent = screenGui
+		Instance.new("UICorner", frame2).CornerRadius = UDim.new(0, 22)
+		local uiGradient = Instance.new("UIGradient", frame2)
+		uiGradient.Rotation = 90
+
+		uiGradient.Color = ColorSequence.new({
+			ColorSequenceKeypoint.new(0, Color3.fromRGB(30, 30, 36)),
+			ColorSequenceKeypoint.new(1, Color3.fromRGB(16, 16, 20)),
+		})
+
+		local uiStroke = Instance.new("UIStroke", frame2)
+		uiStroke.Color = color7
+		uiStroke.Thickness = 1
+		uiStroke.Transparency = 0.7
+		local textLabel = Instance.new("TextLabel")
+		textLabel.BackgroundTransparency = 1
+		textLabel.Position = UDim2.new(0, 26, 0, 24)
+		textLabel.Size = UDim2.new(1, -52, 0, 24)
+		textLabel.Font = Enum.Font.GothamBold
+		textLabel.TextSize = 18
+		textLabel.TextXAlignment = Enum.TextXAlignment.Left
+		textLabel.TextColor3 = color
+		textLabel.Text = "Executor Warning"
+		textLabel.ZIndex = 3
+		textLabel.Parent = frame2
+		local textLabel2 = Instance.new("TextLabel")
+		textLabel2.BackgroundTransparency = 1
+		textLabel2.Position = UDim2.new(0, 26, 0, 48)
+		textLabel2.Size = UDim2.new(1, -52, 0, 18)
+		textLabel2.Font = Enum.Font.Gotham
+		textLabel2.TextSize = 12
+		textLabel2.TextXAlignment = Enum.TextXAlignment.Left
+		textLabel2.TextColor3 = color4
+		textLabel2.Text = text
+		textLabel2.ZIndex = 3
+		textLabel2.Parent = frame2
+		local textLabel3 = Instance.new("TextLabel")
+		textLabel3.BackgroundTransparency = 1
+		textLabel3.Position = UDim2.new(0, 26, 0, 78)
+		textLabel3.Size = UDim2.new(1, -52, 0, 96)
+		textLabel3.Font = Enum.Font.Gotham
+		textLabel3.TextSize = 14
+		textLabel3.TextWrapped = true
+		textLabel3.LineHeight = 1.15
+		textLabel3.TextXAlignment = Enum.TextXAlignment.Left
+		textLabel3.TextYAlignment = Enum.TextYAlignment.Top
+		textLabel3.TextColor3 = color2
+
+		textLabel3.Text = "Seems like you are using " .. text .. [[. This executor might not support all features of the script, and may result in bigger glitches or bugs.
+
+Please use a better executor next time.]]
+
+		textLabel3.ZIndex = 3
+		textLabel3.Parent = frame2
+		local textButton = Instance.new("TextButton")
+		textButton.AnchorPoint = Vector2.new(0.5, 1)
+		textButton.Position = UDim2.new(0.5, 0, 1, -22)
+		textButton.Size = UDim2.new(1, -52, 0, 38)
+		textButton.BackgroundColor3 = color3
+		textButton.BorderSizePixel = 0
+		textButton.AutoButtonColor = false
+		textButton.Font = Enum.Font.GothamBold
+		textButton.TextSize = 13
+		textButton.TextColor3 = color4
+		textButton.Text = "Understood  (5)"
+		textButton.ZIndex = 3
+		textButton.Parent = frame2
+		Instance.new("UICorner", textButton).CornerRadius = UDim.new(0, 12)
+		local flag2 = false
+		local flag3 = false
+
+		task.spawn(function()
+			for i = 5, 1, -1 do
+				textButton.Text = "Understood  (" .. i .. ")"
+				task.wait(1)
+			end
+
+			flag2 = true
+			textButton.Text = "Understood"
+			textButton.BackgroundColor3 = color5
+			textButton.TextColor3 = color6
+		end)
+
+		local function fn()
+			if not flag2 or flag3 then
+				return
+			end
+			flag3 = true
+
+			pcall(function()
+				screenGui:Destroy()
+			end)
+		end
+
+		textButton.MouseButton1Click:Connect(fn)
+		textButton.TouchTap:Connect(fn)
+		local n = 0
+
+		while not flag3 and n < 120 do
+			task.wait(0.2)
+			n += 0.2
+		end
+
+		pcall(function()
+			screenGui:Destroy()
+		end)
+	end
+end
+
+LOADUI = {}
+
+do
+	local hui = gethui and gethui() or game:GetService("CoreGui")
+	local onyxLoading = hui:FindFirstChild("OnyxLoading")
+
+	if onyxLoading then
+		onyxLoading:Destroy()
+	end
+
+	local TweenService_ = game:GetService("TweenService")
+	local screenGui = Instance.new("ScreenGui")
+	screenGui.Name = "OnyxLoading"
+	screenGui.IgnoreGuiInset = true
+	screenGui.ResetOnSpawn = false
+	screenGui.DisplayOrder = 99998
+	screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	screenGui.Parent = hui
+	local frame = Instance.new("Frame")
+	frame.Size = UDim2.fromScale(1, 1)
+	frame.BackgroundColor3 = Color3.new(0, 0, 0)
+	frame.BackgroundTransparency = 1
+	frame.BorderSizePixel = 0
+	frame.Parent = screenGui
+	local frame2 = Instance.new("Frame")
+	frame2.AnchorPoint = Vector2.new(0.5, 0.5)
+	frame2.Position = UDim2.fromScale(0.5, 0.5)
+	frame2.Size = UDim2.fromOffset(math.min(360, math.max(280, (workspace.CurrentCamera and workspace.CurrentCamera.ViewportSize.X or 800) - 40)), 102)
+	frame2.BackgroundColor3 = Color3.fromRGB(23, 23, 28)
+	frame2.BackgroundTransparency = 1
+	frame2.BorderSizePixel = 0
+	frame2.Parent = screenGui
+	Instance.new("UICorner", frame2).CornerRadius = UDim.new(0, 18)
+	local uiGradient = Instance.new("UIGradient", frame2)
+	uiGradient.Rotation = 90
+	local new = ColorSequenceKeypoint.new
+	local color = Color3.fromRGB
+	uiGradient.Color = ColorSequence.new({ ColorSequenceKeypoint.new(0, Color3.fromRGB(30, 30, 36)), new(1, color(16, 16, 20)) })
+	local uiStroke = Instance.new("UIStroke", frame2)
+	uiStroke.Color = Color3.fromRGB(140, 140, 165)
+	uiStroke.Thickness = 1
+	uiStroke.Transparency = 1
+	local frame3 = Instance.new("Frame")
+	frame3.Position = UDim2.fromOffset(22, 18)
+	frame3.Size = UDim2.fromOffset(44, 44)
+	frame3.BackgroundColor3 = Color3.fromRGB(38, 38, 47)
+	frame3.BackgroundTransparency = 1
+	frame3.BorderSizePixel = 0
+	frame3.Parent = frame2
+	Instance.new("UICorner", frame3).CornerRadius = UDim.new(1, 0)
+	local uiStroke2 = Instance.new("UIStroke", frame3)
+	uiStroke2.Color = Color3.fromRGB(140, 140, 165)
+	uiStroke2.Thickness = 1
+	uiStroke2.Transparency = 1
+	local imageLabel = Instance.new("ImageLabel")
+	imageLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+	imageLabel.Position = UDim2.fromScale(0.5, 0.5)
+	imageLabel.Size = UDim2.fromOffset(23, 23)
+	imageLabel.BackgroundTransparency = 1
+	imageLabel.Image = "rbxassetid://110926118391987"
+	imageLabel.ImageColor3 = Color3.fromRGB(236, 236, 244)
+	imageLabel.ImageTransparency = 1
+	imageLabel.Parent = frame3
+	local textLabel = Instance.new("TextLabel")
+	textLabel.Position = UDim2.fromOffset(81, 20)
+	textLabel.Size = UDim2.new(1, -103, 0, 22)
+	textLabel.BackgroundTransparency = 1
+	textLabel.Font = Enum.Font.GothamBold
+	textLabel.TextSize = 19
+	textLabel.TextXAlignment = Enum.TextXAlignment.Left
+	textLabel.TextColor3 = Color3.fromRGB(242, 242, 248)
+	textLabel.TextTransparency = 1
+	textLabel.Text = "Loading Onyx"
+	textLabel.Parent = frame2
+	local textLabel2 = Instance.new("TextLabel")
+	textLabel2.Position = UDim2.fromOffset(81, 43)
+	textLabel2.Size = UDim2.new(1, -103, 0, 19)
+	textLabel2.BackgroundTransparency = 1
+	textLabel2.Font = Enum.Font.Gotham
+	textLabel2.TextSize = 16
+	textLabel2.TextXAlignment = Enum.TextXAlignment.Left
+	textLabel2.TextColor3 = Color3.fromRGB(139, 139, 153)
+	textLabel2.TextTransparency = 1
+	textLabel2.Text = "Starting up"
+	textLabel2.Parent = frame2
+	local frame4 = Instance.new("Frame")
+	frame4.Position = UDim2.fromOffset(22, 79)
+	frame4.Size = UDim2.new(1, -44, 0, 5)
+	frame4.BackgroundColor3 = Color3.fromRGB(38, 38, 47)
+	frame4.BackgroundTransparency = 1
+	frame4.BorderSizePixel = 0
+	frame4.Parent = frame2
+	Instance.new("UICorner", frame4).CornerRadius = UDim.new(1, 0)
+	local frame5 = Instance.new("Frame")
+	frame5.Size = UDim2.new(0, 0, 1, 0)
+	frame5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	frame5.BackgroundTransparency = 1
+	frame5.BorderSizePixel = 0
+	frame5.Parent = frame4
+	Instance.new("UICorner", frame5).CornerRadius = UDim.new(1, 0)
+	local colorSequence = ColorSequence.new
+	local new2 = ColorSequenceKeypoint.new
+	local color2 = Color3.fromRGB
+	Instance.new("UIGradient", frame5).Color = colorSequence({ ColorSequenceKeypoint.new(0, Color3.fromRGB(143, 143, 158)), new2(1, color2(255, 255, 255)) })
+	local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+	TweenService_:Create(frame, tweenInfo, { BackgroundTransparency = 0.5 }):Play()
+	TweenService_:Create(frame2, tweenInfo, { BackgroundTransparency = 0 }):Play()
+	TweenService_:Create(uiStroke, tweenInfo, { Transparency = 0.58 }):Play()
+	TweenService_:Create(frame3, tweenInfo, { BackgroundTransparency = 0 }):Play()
+	TweenService_:Create(uiStroke2, tweenInfo, { Transparency = 0.5 }):Play()
+	TweenService_:Create(imageLabel, tweenInfo, { ImageTransparency = 0 }):Play()
+	TweenService_:Create(textLabel, tweenInfo, { TextTransparency = 0 }):Play()
+	TweenService_:Create(textLabel2, tweenInfo, { TextTransparency = 0 }):Play()
+	TweenService_:Create(frame4, tweenInfo, { BackgroundTransparency = 0 }):Play()
+	TweenService_:Create(frame5, tweenInfo, { BackgroundTransparency = 0 }):Play()
+	local flag = true
+	local tbl = {}
+
+	local function fn()
+		for _, child in ipairs(hui:GetChildren()) do
+			local flag2 = child:IsA("ScreenGui") and child.Enabled and child ~= screenGui
+
+			if flag2 then
+				flag2 = child.Name == "WindUI" or child.Name:match("^WindUI/") or child.Name:match("^Onyx.+Button$")
+			end
+
+			if flag2 then
+				child.Enabled = false
+				tbl[#tbl + 1] = child
+			end
+		end
+	end
+
+	LOADUI.reveal = function()
+		for _, v in ipairs(tbl) do
+			pcall(function()
+				v.Enabled = true
+			end)
+		end
+
+		tbl = {}
+	end
+
+	task.spawn(function()
+		while flag do
+			pcall(fn)
+			task.wait(0.05)
+		end
+	end)
+
+	local n = 0
+
+	LOADUI.step = function(arg, arg2)
+		if not flag then
+			return
+		end
+
+		pcall(function()
+			if type(arg) == "number" and arg > n then
+				n = math.clamp(arg, 0, 1)
+				TweenService_:Create(frame5, TweenInfo.new(0.35, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), { Size = UDim2.new(n, 0, 1, 0) }):Play()
+			end
+
+			if arg2 then
+				textLabel2.Text = tostring(arg2)
+			end
+		end)
+	end
+
+	LOADUI.done = function()
+		if not flag then
+			return
+		end
+		flag = false
+
+		pcall(function()
+			textLabel2.Text = "Ready"
+			TweenService_:Create(frame5, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), { Size = UDim2.new(1, 0, 1, 0) }):Play()
+
+			task.delay(0.34, function()
+				LOADUI.reveal()
+				local tweenInfo2 = TweenInfo.new(0.26, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+				TweenService_:Create(frame, tweenInfo2, { BackgroundTransparency = 1 }):Play()
+				TweenService_:Create(frame2, tweenInfo2, { BackgroundTransparency = 1 }):Play()
+				TweenService_:Create(uiStroke, tweenInfo2, { Transparency = 1 }):Play()
+				TweenService_:Create(frame3, tweenInfo2, { BackgroundTransparency = 1 }):Play()
+				TweenService_:Create(uiStroke2, tweenInfo2, { Transparency = 1 }):Play()
+				TweenService_:Create(imageLabel, tweenInfo2, { ImageTransparency = 1 }):Play()
+				TweenService_:Create(textLabel, tweenInfo2, { TextTransparency = 1 }):Play()
+				TweenService_:Create(textLabel2, tweenInfo2, { TextTransparency = 1 }):Play()
+				TweenService_:Create(frame4, tweenInfo2, { BackgroundTransparency = 1 }):Play()
+				TweenService_:Create(frame5, tweenInfo2, { BackgroundTransparency = 1 }):Play()
+
+				task.delay(0.3, function()
+					pcall(function()
+						screenGui:Destroy()
+					end)
+				end)
+			end)
+		end)
+	end
+end
+
+task.delay(30, function()
+	LOADUI.done()
+end)
+
+task.spawn(function()
+	print("-- LOADING ONYX --")
+
+	for _, v in ipairs({ 0, 5, 11, 22 }) do
+		local n = math.floor(v / 22 * 100 + 0.5)
+		print("[" .. string.rep("#", v) .. string.rep(" ", 22 - v) .. "] " .. string.format("%02d%%", n))
+		task.wait(0.25)
+	end
+
+	print("Loaded. discord.gg/onyxscripts")
+end)
+
+if _G.OnyxV2 then
+	local onyxV2 = _G.OnyxV2
+	local flag = false
+
+	pcall(function()
+		flag = not onyxV2.Destroyed and onyxV2.UIElements and onyxV2.UIElements.Main and onyxV2.UIElements.Main.Parent ~= nil
+	end)
+
+	if flag then
+		pcall(function()
+			onyxV2:Destroy()
+		end)
+
+		local now = os.clock()
+
+		while true do
+			task.wait(0.1)
+			if not (onyxV2.Destroyed or os.clock() - now > 3) then
+				continue
+			end
+			break
+		end
+
+		task.wait(0.7)
+	end
+
+	_G.OnyxV2 = nil
+end
+
+_G.OnyxV2Cleanup = nil
+
+pcall(function()
+	local v = ipairs
+	local CoreGui_ = game:GetService("CoreGui")
+
+	for _, child in v(CoreGui_:GetChildren()) do
+		if child.Name == "OnyxESP" or child.Name:match("^Onyx.+Button$") then
+			child:Destroy()
+		end
+	end
+end)
+
+pcall(function()
+	local hui = gethui and gethui() or game:GetService("CoreGui")
+
+	for _, child in ipairs(hui:GetChildren()) do
+		if child.Name == "WindUI" or child.Name:match("^WindUI/") then
+			child:Destroy()
+		end
+	end
+end)
+
+LOADUI.step(0.12, "Fetching library")
+local v
+
+do
+	local response = nil
+
+	local function fn(arg)
+		if makefolder and isfolder and not isfolder(arg) then
+			pcall(makefolder, arg)
+		end
+	end
+
+	if isfile and readfile and isfile("OnyxV2/windui.lua") then
+		local ok, result = pcall(readfile, "OnyxV2/windui.lua")
+
+		if ok and type(result) == "string" and #result > 100000 then
+			response = result
+		end
+	end
+
+	local flag = response ~= nil
+	response = response or game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua")
+	local chunk = loadstring(response)
+
+	if not chunk and flag then
+		response = game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua")
+		chunk = loadstring(response)
+		flag = false
+	end
+
+	if not flag and writefile then
+		pcall(function()
+			fn("OnyxV2")
+			writefile("OnyxV2/windui.lua", response)
+		end)
+	end
+
+	if writefile and isfile and not isfile("OnyxV2/icons-main.lua") then
+		pcall(function()
+			local str, v2 = game:HttpGet("https://raw.githubusercontent.com/Footagesus/Icons/main/Main-v2.lua"):gsub("return game:HttpGet%(url%)", function()
+				return [[do
+    local _p = "OnyxV2/icons/" .. url:gsub("%W", "_") .. ".txt"
+    if isfile and readfile and isfile(_p) then
+        local _o, _d = pcall(readfile, _p)
+        if _o and type(_d) == "string" and #_d > 0 then return _d end
+    end
+    local _d = game:HttpGet(url)
+    pcall(function()
+        if makefolder and isfolder and not isfolder("OnyxV2/icons") then makefolder("OnyxV2/icons") end
+        writefile(_p, _d)
+    end)
+    return _d
+end]]
+			end)
+
+			if v2 > 0 and loadstring(str) then
+				fn("OnyxV2")
+				writefile("OnyxV2/icons-main.lua", str)
+			end
+		end)
+	end
+
+	if isfile and isfile("OnyxV2/icons-main.lua") then
+		local str, v2 = response:gsub("game%.HttpGet and game:HttpGet%(%w+%)or %w+:GetAsync%(%w+%)", "readfile(\"" .. "OnyxV2/icons-main.lua\")")
+
+		if v2 > 0 then
+			chunk = loadstring(str) or chunk
+		end
+	end
+
+	v = chunk()
+end
+
+v:AddTheme({
+	Name = "Onyx",
+	Background = v:Gradient({
+		["0"] = { Color = Color3.fromHex("#161619"), Transparency = 0.12 },
+		["100"] = { Color = Color3.fromHex("#161619"), Transparency = 0.12 },
+	}, { Rotation = 90 }),
+	Accent = v:Gradient({
+		["0"] = { Color = Color3.fromHex("#101014"), Transparency = 0 },
+		["100"] = { Color = Color3.fromHex("#2a2a32"), Transparency = 0 },
+	}, { Rotation = 90 }),
+	Dialog = Color3.fromHex("#141418"),
+	Outline = Color3.fromHex("#ffffff"),
+	Text = Color3.fromHex("#ffffff"),
+	Placeholder = Color3.fromHex("#a1a1aa"),
+	Button = Color3.fromHex("#3f3f46"),
+	Icon = Color3.fromHex("#d4d4d8"),
+	Toggle = Color3.fromHex("#ffffff"),
+	Slider = Color3.fromHex("#ffffff"),
+	Checkbox = Color3.fromHex("#ffffff"),
+	SliderIcon = Color3.fromHex("#71717a"),
+	Primary = Color3.fromHex("#ffffff"),
+	PanelBackground = Color3.fromHex("#ffffff"),
+	PanelBackgroundTransparency = 0.94,
+	LabelBackground = Color3.fromHex("#000000"),
+	LabelBackgroundTransparency = 0.8,
+	ElementBackground = Color3.fromHex("#18181b"),
+	ElementBackgroundTransparency = 0.3,
+})
+
+v:SetTheme("Onyx")
+LOADUI.step(0.4, "Building window")
+local v2
+
+do
+	local v3 = v
+	local createWindow = v3.CreateWindow
+
+	local tbl = {
+		Title = "Onyx - Premium",
+		Icon = "solar:planet-bold",
+		Author = "Murder Mystery 2",
+		Folder = "OnyxV2",
+		Background = "https://raw.githubusercontent.com/onyx-scripts/main/main/onyxscripts.png",
+		Size = UDim2.fromOffset(math.max(560, math.min(850, (workspace.CurrentCamera and workspace.CurrentCamera.ViewportSize or Vector2.new(1920, 1080)).X - 24)), math.max(350, math.min(560, (workspace.CurrentCamera and workspace.CurrentCamera.ViewportSize or Vector2.new(1920, 1080)).Y - 24))),
+	}
+
+	tbl.MaxSize = Vector2.new(850, 560)
+	tbl.HideSearchBar = false
+	tbl.Transparent = true
+	tbl.Theme = "Onyx"
+	tbl.Resizable = true
+	tbl.ToggleKey = nil
+	tbl.BackgroundImageTransparency = 0.35
+	tbl.Acrylic = false
+	tbl.ShadowTransparency = 0.3
+	tbl.Radius = 18
+	tbl.IconRadius = 1
+	tbl.IconSize = 27
+	tbl.SideBarWidth = 185
+	tbl.Topbar = { Height = 56, ButtonsType = "Default" }
+	tbl.User = { Enabled = false, Anonymous = false }
+	v2 = createWindow(v3, tbl)
+end
+
+v2:Tag({ Title = "@OnyxScripts", Icon = "youtube", Color = Color3.fromHex("#ffffff"), Radius = 6 })
+
+v2:Tag({
+	Title = "discord.gg/onyxscripts",
+	Icon = "message-square-more",
+	Color = Color3.fromHex("#ffffff"),
+	Radius = 6,
+})
+
+v2:Tag({ Title = "Mobile & PC", Icon = "smartphone", Color = Color3.fromHex("#ffffff"), Radius = 6 })
+
+task.spawn(function()
+	local tbl = { ["discord.gg/onyxscripts"] = true, ["Mobile & PC"] = true, ["@OnyxScripts"] = true }
+	local colorSequence = ColorSequence.new
+	local tbl2 = {}
+	local v3 = ColorSequenceKeypoint.new(0, Color3.fromRGB(26, 26, 32))
+	local v4 = ColorSequenceKeypoint.new(0.35, Color3.fromRGB(46, 46, 56))
+	local v5 = ColorSequenceKeypoint.new(0.7, Color3.fromRGB(32, 32, 39))
+	local new = ColorSequenceKeypoint.new
+	local color = Color3.fromRGB
+	tbl2[1] = v3
+	tbl2[2] = v4
+	tbl2[3] = v5
+
+	do
+		local values = table.pack(new(1, color(42, 42, 51)))
+		table.move(values, 1, values.n, 4, tbl2)
+	end
+
+	local v6 = colorSequence(tbl2)
+	local color2 = Color3.fromRGB(228, 228, 236)
+
+	for i = 1, 120 do
+		local n = 0
+
+		pcall(function()
+			for _, descendant in ipairs(v2.UIElements.Main:GetDescendants()) do
+				if descendant:IsA("TextLabel") and tbl[descendant.Text] then
+					local parent = descendant.Parent and descendant.Parent.Parent
+
+					if parent and parent:IsA("ImageLabel") then
+						if not parent:FindFirstChildWhichIsA("UIGradient") then
+							local uiGradient = Instance.new("UIGradient")
+							uiGradient.Rotation = 45
+							uiGradient.Color = v6
+							uiGradient.Parent = parent
+						end
+
+						for _, descendant2 in ipairs(parent:GetDescendants()) do
+							if descendant2:IsA("TextLabel") then
+								descendant2.TextColor3 = color2
+							elseif descendant2:IsA("ImageLabel") and descendant2 ~= parent then
+								descendant2.ImageColor3 = color2
+							end
+						end
+
+						n += 1
+					end
+				end
+			end
+		end)
+
+		local n2 = 0
+
+		for k in pairs(tbl) do
+			n2 += 1
+		end
+
+		if n >= n2 then
+			local tbl3 = {}
+
+			pcall(function()
+				for _, descendant in ipairs(v2.UIElements.Main:GetDescendants()) do
+					if descendant:IsA("TextLabel") and tbl[descendant.Text] and descendant.Parent then
+						local v7 = nil
+
+						for _, child in ipairs(descendant.Parent:GetChildren()) do
+							if child ~= descendant and child:IsA("GuiObject") then
+								v7 = child
+							end
+						end
+
+						if v7 then
+							tbl3[#tbl3 + 1] = { lbl = descendant, icon = v7 }
+						end
+					end
+				end
+			end)
+
+			local function fn(arg, arg2)
+				if arg2 then
+					local uiListLayout = arg.lbl.Parent and arg.lbl.Parent:FindFirstChildOfClass("UIListLayout")
+
+					if uiListLayout then
+						local parent = uiListLayout.Parent
+						uiListLayout.Parent = nil
+						RunService.RenderStepped:Wait()
+
+						if parent.Parent then
+							uiListLayout.Parent = parent
+						end
+					end
+
+					return
+				end
+
+				local size = arg.icon.Size
+				arg.icon.Size = UDim2.new(size.X.Scale, size.X.Offset + 1, size.Y.Scale, size.Y.Offset)
+				RunService.RenderStepped:Wait()
+
+				if arg.icon.Parent then
+					arg.icon.Size = size
+				end
+			end
+
+			local now = os.clock()
+			local n3 = 0
+
+			while _G.OnyxV2 == v2 and n3 < 40 do
+				for _, v7 in ipairs(tbl3) do
+					if v7.lbl.Parent and v7.icon.Parent and v7.icon.AbsoluteSize.X > 0 and v7.lbl.AbsoluteSize.X > 0 and v7.lbl.AbsolutePosition.X < v7.icon.AbsolutePosition.X + v7.icon.AbsoluteSize.X then
+						n3 += 1
+						pcall(fn, v7, n3 > 6)
+					end
+				end
+
+				task.wait(os.clock() - now < 25 and 0.3 or 3)
+			end
+
+			return
+		end
+
+		RunService.RenderStepped:Wait()
+	end
+end)
+
+v2:SetBackgroundTransparency(0.4)
+
+task.spawn(function()
+	local RunService_ = game:GetService("RunService")
+
+	for i = 1, 120 do
+		local background = v2.UIElements and v2.UIElements.Main and v2.UIElements.Main:FindFirstChild("Background")
+
+		if background then
+			local flag = false
+
+			for _, child in ipairs(background:GetChildren()) do
+				if child:IsA("ImageLabel") and child.Size == UDim2.new(1, 0, 1, 0) then
+					child.ScaleType = Enum.ScaleType.Stretch
+					flag = true
+				end
+			end
+
+			if flag then
+				return
+			end
+		end
+
+		RunService_.RenderStepped:Wait()
+	end
+end)
+
+task.spawn(function()
+	local TweenService_ = game:GetService("TweenService")
+	local RunService_ = game:GetService("RunService")
+
+	local function fn()
+		local main = v2.UIElements and v2.UIElements.Main
+		if not main then
+			return nil
+		end
+		local topbar = main:FindFirstChild("Topbar", true)
+
+		for _, v3 in ipairs({ "Left", "Title", "Title" }) do
+			topbar = topbar and topbar:FindFirstChild(v3)
+		end
+
+		if topbar and topbar:IsA("TextLabel") then
+			return topbar
+		end
+
+		for _, descendant in ipairs(main:GetDescendants()) do
+			if descendant:IsA("TextLabel") and descendant.Text == v2.Title then
+				return descendant
+			end
+		end
+
+		return nil
+	end
+
+	local v3 = nil
+
+	for i = 1, 120 do
+		v3 = fn()
+		if not v3 then
+			RunService_.RenderStepped:Wait()
+			continue
+		end
+		break
+	end
+
+	if not v3 or v3:FindFirstChild("OnyxTitleSheen") then
+		return
+	end
+	local uiGradient = v3:FindFirstChildWhichIsA("UIGradient")
+
+	if uiGradient then
+		uiGradient:Destroy()
+	end
+
+	local uiGradient2 = Instance.new("UIGradient")
+	uiGradient2.Name = "OnyxTitleSheen"
+	uiGradient2.Rotation = 12
+	local colorSequence = ColorSequence.new
+	local tbl = {}
+	local v4 = ColorSequenceKeypoint.new(0, Color3.fromRGB(148, 148, 164))
+	local v5 = ColorSequenceKeypoint.new(0.45, Color3.fromRGB(255, 255, 255))
+	local v6 = ColorSequenceKeypoint.new(0.55, Color3.fromRGB(255, 255, 255))
+	local new = ColorSequenceKeypoint.new
+	local color = Color3.fromRGB
+	tbl[1] = v4
+	tbl[2] = v5
+	tbl[3] = v6
+
+	do
+		local values = table.pack(new(1, color(148, 148, 164)))
+		table.move(values, 1, values.n, 4, tbl)
+	end
+
+	uiGradient2.Color = colorSequence(tbl)
+	uiGradient2.Offset = Vector2.new(-0.55000001192092896, 0)
+	uiGradient2.Parent = v3
+	local uiStroke = Instance.new("UIStroke")
+	uiStroke.Name = "OnyxTitleGlow"
+	uiStroke.Color = Color3.fromRGB(236, 239, 250)
+	uiStroke.Thickness = 1.4
+	uiStroke.Transparency = 0.82
+	uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	uiStroke.Parent = v3
+	TweenService_:Create(uiGradient2, TweenInfo.new(2.6, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, -1, true), { Offset = Vector2.new(0.55000001192092896, 0) }):Play()
+	TweenService_:Create(uiStroke, TweenInfo.new(1.7, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, -1, true), { Transparency = 0.42 }):Play()
+end)
+
+local color = Color3.fromHex
+
+v2:EditOpenButton({
+	Title = "Onyx",
+	Icon = "solar:planet-bold",
+	CornerRadius = UDim.new(0, 16),
+	StrokeThickness = 2,
+	Color = ColorSequence.new(Color3.fromHex("#2a2a32"), color("#c9c9d4")),
+	OnlyMobile = false,
+	Enabled = true,
+	Draggable = true,
+})
+
+_G.OnyxV2 = v2
+local tbl
+
+tbl = {
+	farmTargetTime = 0,
+	shellsOn = false,
+	shellsRunning = false,
+	flingAllRunning = false,
+	hudScale = 1,
+	flingWhenDone = false,
+	flingDoneFired = false,
+	sawCoins = false,
+	lastMap = nil,
+	killWhenFull = false,
+	killFired = false,
+	el = {},
+	conns = {},
+	revealed = {},
+	clipWas = {},
+	farmClipWas = {},
+	config = nil,
+	hudBtns = {},
+	hudPos = {},
+	cfgSnapshot = nil,
+	cfgWiped = false,
+	hudDir = "WindUI/OnyxV2/hud",
+	hudFile = "WindUI/OnyxV2/hud/autosave.json",
+}
+
+pcall(function()
+	if makefolder and isfolder and not isfolder(tbl.hudDir) then
+		makefolder(tbl.hudDir)
+	end
+end)
+
+tbl.sfxId = {
+	error = 131039887376992,
+	gun = 131390520971848,
+	click = 139800881181209,
+	toggle = 136108770017536,
+}
+
+tbl.sfxVol = { error = 0.55, gun = 0.75, click = 0.65, toggle = 0.6 }
+tbl.sfxOn = { error = true, gun = true, click = true, toggle = true }
+tbl.sfxReady = false
+tbl.sfxQuiet = false
+tbl.sfx = {}
+
+tbl.playSfx = function(name)
+	if not tbl.sfxOn[name] then
+		return
+	end
+	local v3 = tbl.sfxId[name]
+	if not v3 then
+		return
+	end
+
+	pcall(function()
+		local SoundService = game:GetService("SoundService")
+		local onyxSFX = SoundService:FindFirstChild("OnyxSFX")
+
+		if not onyxSFX then
+			onyxSFX = Instance.new("Folder")
+			onyxSFX.Name = "OnyxSFX"
+			onyxSFX.Parent = SoundService
+		end
+
+		local sound = tbl.sfx[name]
+
+		if not sound or not sound.Parent then
+			sound = onyxSFX:FindFirstChild(name) or Instance.new("Sound")
+			sound.Name = name
+			sound.SoundId = "rbxassetid://" .. v3
+			sound.Volume = tbl.sfxVol[name] or 0.5
+			sound.Parent = onyxSFX
+			tbl.sfx[name] = sound
+		end
+
+		sound.TimePosition = 0
+		sound:Play()
+	end)
+end
+
+local tab = v2.Tab
+
+v2.Tab = function(arg, arg2)
+	local v3 = tab(arg, arg2)
+
+	if type(v3) == "table" and type(v3.Toggle) == "function" then
+		local toggle = v3.Toggle
+
+		v3.Toggle = function(arg3, arg4)
+			if type(arg4) == "table" then
+				local callback = arg4.Callback
+
+				arg4.Callback = function(...)
+					if tbl.sfxReady and not tbl.sfxQuiet then
+						tbl.playSfx("toggle")
+					end
+
+					if callback then
+						return callback(...)
+					end
+				end
+			end
+
+			return toggle(arg3, arg4)
+		end
+	end
+
+	return v3
+end
+
+tbl.notifyReady = false
+tbl.realNotify = v.Notify
+
+v.Notify = function(arg, arg2)
+	if not tbl.notifyReady then
+		return
+	end
+
+	if type(arg2) == "table" and (arg2.Icon == "x" or arg2.Icon == "clock") then
+		tbl.playSfx("error")
+	end
+
+	return tbl.realNotify(arg, arg2)
+end
+
+tbl.notifyNow = function(arg)
+	return tbl.realNotify(v, arg)
+end
+
+task.delay(4, function()
+	tbl.notifyReady = true
+end)
+
+task.delay(20, function()
+	tbl.sfxReady = true
+end)
+
+task.spawn(function()
+	local CoreGui_ = game:GetService("CoreGui")
+
+	local function fn(child)
+		if not (child and child:IsA("GuiObject")) then
+			return
+		end
+
+		task.spawn(function()
+			local imageLabel = nil
+
+			for i = 1, 60 do
+				imageLabel = child:FindFirstChildWhichIsA("ImageLabel")
+				if not (imageLabel or not child.Parent) then
+					task.wait()
+					continue
+				end
+				break
+			end
+
+			if not imageLabel or imageLabel:FindFirstChild("OnyxToastRamp") then
+				return
+			end
+			local uiGradient = Instance.new("UIGradient")
+			uiGradient.Name = "OnyxToastRamp"
+			uiGradient.Rotation = 45
+
+			uiGradient.Color = ColorSequence.new({
+				ColorSequenceKeypoint.new(0, Color3.new(1, 1, 1)),
+				ColorSequenceKeypoint.new(1, Color3.fromRGB(118, 118, 130)),
+			})
+
+			uiGradient.Parent = imageLabel
+		end)
+	end
+
+	local windUINotifications = nil
+
+	for i = 1, 900 do
+		windUINotifications = CoreGui_:FindFirstChild("WindUI/Notifications", true)
+		if not windUINotifications then
+			task.wait(0.2)
+			continue
+		end
+		break
+	end
+
+	if not windUINotifications then
+		return
+	end
+	local frame = nil
+
+	for i = 1, 900 do
+		frame = windUINotifications:FindFirstChildWhichIsA("Frame")
+		if not frame then
+			task.wait(0.2)
+			continue
+		end
+		break
+	end
+
+	if not frame then
+		return
+	end
+
+	for _, child in ipairs(frame:GetChildren()) do
+		fn(child)
+	end
+
+	frame.ChildAdded:Connect(fn)
+end)
+
+tbl.findOpenPill = function()
+	local windUI = (gethui and gethui() or game:GetService("CoreGui")):FindFirstChild("WindUI")
+	windUI = windUI and windUI:FindFirstChild("Window")
+	if not windUI then
+		return nil, nil
+	end
+	local v3 = nil
+	local v4 = nil
+
+	for _, child in ipairs(windUI:GetChildren()) do
+		if child:IsA("Frame") then
+			if child:FindFirstChild("Main") then
+				v3 = child
+			elseif child:FindFirstChildWhichIsA("TextButton", true) then
+				v4 = child
+			end
+		end
+	end
+
+	return v4, v3
+end
+
+tbl.pinOpenPill = function()
+	task.spawn(function()
+		local v3 = nil
+		local v4 = nil
+
+		for i = 1, 200 do
+			v3, v4 = tbl.findOpenPill()
+			if not (v3 and v4) then
+				task.wait(0.05)
+				continue
+			end
+			break
+		end
+
+		if not (v3 and v4) then
+			return
+		end
+
+		local function fn()
+			local visible = not v4.Visible
+
+			if v3.Visible ~= visible then
+				v3.Visible = visible
+			end
+		end
+
+		fn()
+		tbl.conns[#tbl.conns + 1] = v4:GetPropertyChangedSignal("Visible"):Connect(fn)
+		tbl.conns[#tbl.conns + 1] = v3:GetPropertyChangedSignal("Visible"):Connect(fn)
+	end)
+end
+
+tbl.mouseAimPoint = function()
+	local currentCamera = Workspace.CurrentCamera
+	if not currentCamera then
+		return nil
+	end
+
+	local ok, result = pcall(function()
+		local mouseLocation = UserInputService:GetMouseLocation()
+		local v3 = currentCamera:ViewportPointToRay(mouseLocation.X, mouseLocation.Y)
+		local raycastParams = RaycastParams.new()
+		raycastParams.FilterType = Enum.RaycastFilterType.Exclude
+		raycastParams.FilterDescendantsInstances = { LocalPlayer.Character }
+		local hit = Workspace:Raycast(v3.Origin, v3.Direction * 300, raycastParams)
+		return hit and hit.Position or v3.Origin + v3.Direction * 300
+	end)
+
+	return ok and result or nil
+end
+
+tbl.xrayWas = {}
+tbl.xrayOn = false
+
+tbl.setXray = function(xrayOn)
+	tbl.xrayOn = xrayOn
+
+	if xrayOn then
+		for _, descendant in ipairs(Workspace:GetDescendants()) do
+			if descendant:IsA("BasePart") and descendant.Transparency < 0.5 then
+				local model = descendant:FindFirstAncestorWhichIsA("Model")
+
+				if not (model and Players:GetPlayerFromCharacter(model)) then
+					if tbl.xrayWas[descendant] == nil then
+						tbl.xrayWas[descendant] = descendant.Transparency
+					end
+
+					descendant.Transparency = 0.5
+				end
+			end
+		end
+	else
+		for k, v3 in next, tbl.xrayWas, nil do
+			pcall(function()
+				if k.Parent then
+					k.Transparency = v3
+				end
+			end)
+		end
+
+		tbl.xrayWas = {}
+	end
+end
+
+tbl.dropConns = function(arg)
+	if type(arg) ~= "table" then
+		return
+	end
+
+	for _, v3 in ipairs(arg) do
+		pcall(function()
+			v3:Disconnect()
+		end)
+	end
+
+	for i = #arg, 1, -1 do
+		arg[i] = nil
+	end
+end
+
+tbl.unreveal = function()
+	for k, v3 in next, tbl.revealed, nil do
+		pcall(function()
+			if k.Parent then
+				k.Transparency = v3
+			end
+		end)
+	end
+
+	tbl.revealed = {}
+end
+
+tbl.reclip = function(arg)
+	for k in next, arg, nil do
+		pcall(function()
+			if k.Parent then
+				k.CanCollide = true
+			end
+		end)
+	end
+
+	for k in next, arg, nil do
+		arg[k] = nil
+	end
+end
+
+tbl.DISCORD_INVITE = "onyxscripts"
+tbl.DISCORD_FETCH = "XEBpqUNrMy"
+tbl.discordInfo = nil
+tbl.discordTried = false
+
+tbl.discordFetch = function()
+	if tbl.discordTried then
+		return tbl.discordInfo
+	end
+	tbl.discordTried = true
+	local str = "https://discord.com/api/v10/invites/" .. tbl.DISCORD_FETCH .. "?with_counts=true&with_expiration=true"
+	local body = nil
+	local request_ = v and v.Creator and v.Creator.Request or syn and syn.request or http_request or request
+	local request_2
+
+	if request_ then
+		request_2 = request_
+	else
+		request_2 = http and http.request
+	end
+
+	if request_2 then
+		local ok, result = pcall(function()
+			return request_2({ Url = str, Method = "GET", Headers = { ["User-Agent"] = "Onyx/2", Accept = "application/json" } })
+		end)
+
+		ok = ok and result
+
+		if ok then
+			ok = tonumber(result.StatusCode or 200) == 200
+		end
+
+		if ok then
+			body = result.Body
+		end
+	end
+
+	if not body then
+		local ok, result = pcall(function()
+			return game:HttpGet(str)
+		end)
+
+		if ok then
+			body = result
+		end
+	end
+
+	if not body then
+		return nil
+	end
+
+	local ok, result = pcall(function()
+		return game:GetService("HttpService"):JSONDecode(body)
+	end)
+
+	if not ok or type(result) ~= "table" or not result.guild then
+		return nil
+	end
+	local icon = result.guild.id and result.guild.icon
+	local str2 = nil
+
+	if icon then
+		str2 = "https://cdn.discordapp.com/icons/" .. result.guild.id .. "/" .. result.guild.icon .. ".png?size=1024"
+	end
+
+	tbl.discordInfo = {
+		name = result.guild.name or "Onyx Scripts",
+		members = result.approximate_member_count,
+		online = result.approximate_presence_count,
+		icon = str2,
+	}
+
+	return tbl.discordInfo
+end
+
+tbl.CLIPBOARD_FNS = {
+	"setclipboard",
+	"toclipboard",
+	"tosetclipboard",
+	"set_clipboard",
+	"write_clipboard",
+	"setClipboard",
+}
+
+tbl.copyText = function(arg)
+	local genv = getgenv and getgenv() or _G
+
+	for _, clipboardFn in ipairs(tbl.CLIPBOARD_FNS) do
+		local value = rawget(genv, clipboardFn)
+		local result
+
+		if type(value) ~= "function" then
+			local ok
+
+			ok, result = pcall(function()
+				return getfenv(0)[clipboardFn]
+			end)
+
+			if not (ok and type(result) == "function") then
+				result = value
+			end
+		else
+			result = value
+		end
+
+		if type(result) == "function" and pcall(result, arg) then
+			return true
+		end
+	end
+
+	local v3 = ipairs
+	local tbl2 = {}
+	local tbl3 = { syn, "write_clipboard" }
+	local tbl4 = { syn, "set_clipboard" }
+	local tbl5 = { rawget(genv, "Clipboard"), "set" }
+	local tbl6 = { rawget(genv, "Clipboard"), "Set" }
+	tbl2[1] = tbl3
+	tbl2[2] = tbl4
+	tbl2[3] = tbl5
+	tbl2[4] = tbl6
+
+	for _, v4 in v3(tbl2) do
+		local v5 = v4[1]
+		local v6 = v4[2]
+
+		if type(v5) == "table" and type(rawget(v5, v6)) == "function" then
+			if pcall(v5[v6], arg) then
+				return true
+			end
+		end
+	end
+
+	return false
+end
+
+tbl.copyInvite = function()
+	local str = "https://discord.gg/" .. tbl.DISCORD_INVITE
+	return tbl.copyText(str), str
+end
+
+tbl.discordCard = function(arg)
+	local v3 = tbl.discordFetch()
+
+	local tbl2 = {
+		Title = "Join Server",
+		Callback = function()
+			local v4, v5 = tbl.copyInvite()
+
+			v:Notify({
+				Title = v4 and "Copied!" or "Discord",
+				Content = v4 and v5 .. " is on your clipboard." or v5,
+				Duration = 5,
+				Icon = v4 and "check" or "info",
+			})
+		end,
+	}
+
+	local paragraph = arg.Paragraph
+	local tbl3 = { Title = v3 and v3.name or "Onyx Scripts" }
+	local str
+
+	if v3 then
+		str = "Member Count : " .. tostring(v3.members or "?")
+	else
+		str = v3
+	end
+
+	tbl3.Desc = (str or "discord.gg/" .. tbl.DISCORD_INVITE) .. [[
+
+Join our discord to report bugs, give suggestions or ask a question! If you can't, just ask in our YouTube description.]]
+
+	tbl3.Image = v3 and v3.icon or "message-square-more"
+	tbl3.ImageSize = 48
+	tbl3.Buttons = { tbl2 }
+	paragraph(arg, tbl3)
+end
+
+task.spawn(function()
+	local RunService_ = game:GetService("RunService")
+
+	for i = 1, 300 do
+		local main = v2.UIElements and v2.UIElements.Main
+
+		if main then
+			if not tbl.bgAsset then
+				local background = main:FindFirstChild("Background")
+				local v3 = ipairs
+				local children = background and background:GetChildren() or {}
+
+				for _, child in v3(children) do
+					if child:IsA("ImageLabel") and child.Size == UDim2.new(1, 0, 1, 0) and tostring(child.Image) ~= "" then
+						tbl.bgAsset = child.Image
+					end
+				end
+			end
+
+			if not tbl.markIcon then
+				local topbar = main:FindFirstChild("Topbar", true)
+				local v3 = ipairs
+				topbar = topbar and topbar:GetDescendants() or {}
+
+				for _, v4 in v3(topbar) do
+					if v4:IsA("ImageLabel") and v4.Size == UDim2.new(1, 0, 1, 0) and tostring(v4.Image):find("rbxassetid", 1, true) then
+						tbl.markIcon = v4:Clone()
+						break
+					end
+				end
+			end
+
+			if tbl.bgAsset and tbl.markIcon then
+				return
+			end
+		end
+
+		RunService_.RenderStepped:Wait()
+	end
+end)
+
+tbl.card = function(arg)
+	local tbl2 = arg or {}
+
+	local function fn()
+	end
+
+	pcall(function()
+		local hui = gethui and gethui() or CoreGui
+		local onyxCard = hui:FindFirstChild("OnyxCard")
+
+		if onyxCard then
+			onyxCard:Destroy()
+		end
+
+		local screenGui = Instance.new("ScreenGui")
+		screenGui.Name = "OnyxCard"
+		screenGui.IgnoreGuiInset = true
+		screenGui.ResetOnSpawn = false
+		screenGui.DisplayOrder = 99999
+		screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+		screenGui.Parent = hui
+		local TweenService_ = game:GetService("TweenService")
+		local color2 = Color3.fromRGB(140, 140, 165)
+		local color3 = Color3.fromRGB(158, 158, 174)
+		local color4 = Color3.fromRGB(168, 168, 184)
+		local color5 = Color3.fromRGB(29, 29, 37)
+		local color6 = Color3.fromRGB(233, 233, 242)
+		local color7 = Color3.fromRGB(232, 232, 240)
+		local color8 = Color3.fromRGB(22, 22, 28)
+		local color9 = Color3.fromRGB(236, 236, 244)
+		local actions = tbl2.actions
+		local flag = type(actions) == "table" and #actions > 0
+		local n = flag and 254 or 204
+		local textButton = Instance.new("TextButton")
+		textButton.Size = UDim2.fromScale(1, 1)
+		textButton.BackgroundColor3 = Color3.new(0, 0, 0)
+		textButton.BackgroundTransparency = 1
+		textButton.BorderSizePixel = 0
+		textButton.AutoButtonColor = false
+		textButton.Text = ""
+		textButton.Parent = screenGui
+		local frame = Instance.new("Frame")
+		frame.AnchorPoint = Vector2.new(0.5, 0.5)
+		frame.Position = UDim2.fromScale(0.5, 0.5)
+		frame.Size = UDim2.fromOffset(math.min(440, math.max(300, (workspace.CurrentCamera and workspace.CurrentCamera.ViewportSize.X or 800) - 40)), n)
+		frame.BackgroundColor3 = Color3.fromRGB(23, 23, 28)
+		frame.BackgroundTransparency = 1
+		frame.BorderSizePixel = 0
+		frame.ClipsDescendants = true
+		frame.Parent = screenGui
+		Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 22)
+		local uiScale = Instance.new("UIScale", frame)
+		uiScale.Scale = 0.96
+		local uiGradient = Instance.new("UIGradient", frame)
+		uiGradient.Rotation = 90
+		local new = ColorSequenceKeypoint.new
+		local color10 = Color3.fromRGB
+		uiGradient.Color = ColorSequence.new({ ColorSequenceKeypoint.new(0, Color3.fromRGB(30, 30, 36)), new(1, color10(16, 16, 20)) })
+		local uiStroke = Instance.new("UIStroke", frame)
+		uiStroke.Color = color2
+		uiStroke.Thickness = 1
+		uiStroke.Transparency = 1
+		local flag2 = tbl.bgAsset and tbl.bgAsset ~= ""
+		local imageLabel = nil
+
+		if flag2 then
+			imageLabel = Instance.new("ImageLabel")
+			imageLabel.Size = UDim2.fromScale(1, 1)
+			imageLabel.BackgroundTransparency = 1
+			imageLabel.Image = tbl.bgAsset
+			imageLabel.ScaleType = Enum.ScaleType.Crop
+			imageLabel.ImageTransparency = 1
+			imageLabel.ZIndex = 0
+			imageLabel.Parent = frame
+			Instance.new("UICorner", imageLabel).CornerRadius = UDim.new(0, 22)
+		end
+
+		local frame2 = Instance.new("Frame")
+		frame2.Position = UDim2.fromOffset(22, 20)
+		frame2.Size = UDim2.fromOffset(48, 48)
+		frame2.BackgroundColor3 = Color3.fromRGB(38, 38, 48)
+		frame2.BackgroundTransparency = 1
+		frame2.BorderSizePixel = 0
+		frame2.ZIndex = 1
+		frame2.Parent = frame
+		Instance.new("UICorner", frame2).CornerRadius = UDim.new(1, 0)
+		local uiStroke2 = Instance.new("UIStroke", frame2)
+		uiStroke2.Color = color2
+		uiStroke2.Thickness = 1
+		uiStroke2.Transparency = 1
+		local clone
+
+		if tbl.markIcon then
+			clone = tbl.markIcon:Clone()
+		else
+			clone = Instance.new("ImageLabel")
+			clone.Image = "rbxassetid://120139782405970"
+		end
+
+		clone.Name = "Mark"
+		clone.AnchorPoint = Vector2.new(0.5, 0.5)
+		clone.Position = UDim2.fromScale(0.5, 0.5)
+		clone.Size = UDim2.fromOffset(26, 26)
+		clone.BackgroundTransparency = 1
+		clone.ImageColor3 = color6
+		clone.ImageTransparency = 1
+		clone.Visible = true
+		clone.Parent = frame2
+		local textLabel = Instance.new("TextLabel")
+		textLabel.Position = UDim2.fromOffset(86, 22)
+		textLabel.Size = UDim2.new(1, -108, 0, 26)
+		textLabel.BackgroundTransparency = 1
+		textLabel.Font = Enum.Font.GothamBold
+		textLabel.TextSize = 22
+		textLabel.TextXAlignment = Enum.TextXAlignment.Left
+		textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+		textLabel.TextTransparency = 1
+		textLabel.Text = tostring(tbl2.title or "Onyx")
+		textLabel.ZIndex = 1
+		textLabel.Parent = frame
+		local uiGradient2 = Instance.new("UIGradient", textLabel)
+		uiGradient2.Rotation = 10
+		local colorSequence = ColorSequence.new
+		local tbl3 = {}
+		local v3 = ColorSequenceKeypoint.new(0, Color3.fromRGB(154, 154, 168))
+		local v4 = ColorSequenceKeypoint.new(0.42, Color3.fromRGB(255, 255, 255))
+		local v5 = ColorSequenceKeypoint.new(0.58, Color3.fromRGB(255, 255, 255))
+		local new2 = ColorSequenceKeypoint.new
+		local color11 = Color3.fromRGB
+		tbl3[1] = v3
+		tbl3[2] = v4
+		tbl3[3] = v5
+
+		do
+			local values = table.pack(new2(1, color11(154, 154, 168)))
+			table.move(values, 1, values.n, 4, tbl3)
+		end
+
+		uiGradient2.Color = colorSequence(tbl3)
+		local textLabel2 = Instance.new("TextLabel")
+		textLabel2.Position = UDim2.fromOffset(86, 50)
+		textLabel2.Size = UDim2.new(1, -108, 0, 18)
+		textLabel2.BackgroundTransparency = 1
+		textLabel2.Font = Enum.Font.Gotham
+		textLabel2.TextSize = 14
+		textLabel2.TextXAlignment = Enum.TextXAlignment.Left
+		textLabel2.TextColor3 = color3
+		textLabel2.TextTransparency = 1
+		textLabel2.Text = tostring(tbl2.subtitle or "")
+		textLabel2.ZIndex = 1
+		textLabel2.Parent = frame
+		local textLabel3 = Instance.new("TextLabel")
+		textLabel3.Position = UDim2.fromOffset(22, 82)
+		textLabel3.Size = UDim2.new(1, -44, 0, 42)
+		textLabel3.BackgroundTransparency = 1
+		textLabel3.Font = Enum.Font.Gotham
+		textLabel3.TextSize = 15
+		textLabel3.LineHeight = 1.25
+		textLabel3.TextWrapped = true
+		textLabel3.TextXAlignment = Enum.TextXAlignment.Left
+		textLabel3.TextYAlignment = Enum.TextYAlignment.Top
+		textLabel3.TextColor3 = color4
+		textLabel3.TextTransparency = 1
+		textLabel3.Text = tostring(tbl2.body or "")
+		textLabel3.ZIndex = 1
+		textLabel3.Parent = frame
+		local frame3 = Instance.new("Frame")
+		frame3.Position = UDim2.fromOffset(22, 136)
+		frame3.Size = UDim2.new(1, -44, 0, 48)
+		frame3.BackgroundColor3 = color5
+		frame3.BackgroundTransparency = 1
+		frame3.BorderSizePixel = 0
+		frame3.ZIndex = 1
+		frame3.Parent = frame
+		Instance.new("UICorner", frame3).CornerRadius = UDim.new(0, 14)
+		local uiStroke3 = Instance.new("UIStroke", frame3)
+		uiStroke3.Color = color2
+		uiStroke3.Thickness = 1
+		uiStroke3.Transparency = 1
+		local textLabel4 = Instance.new("TextLabel")
+		textLabel4.AnchorPoint = Vector2.new(0, 0.5)
+		textLabel4.Position = UDim2.new(0, 15, 0.5, 0)
+		textLabel4.Size = UDim2.new(1, -135, 0, 20)
+		textLabel4.BackgroundTransparency = 1
+		textLabel4.Font = Enum.Font.Gotham
+		textLabel4.TextSize = 15
+		textLabel4.TextXAlignment = Enum.TextXAlignment.Left
+		textLabel4.TextColor3 = color6
+		textLabel4.TextTransparency = 1
+		textLabel4.Text = "discord.gg/" .. tbl.DISCORD_INVITE
+		textLabel4.Parent = frame3
+		local textButton2 = Instance.new("TextButton")
+		textButton2.AnchorPoint = Vector2.new(1, 0.5)
+		textButton2.Position = UDim2.new(1, -7, 0.5, 0)
+		textButton2.Size = UDim2.fromOffset(100, 34)
+		textButton2.BackgroundColor3 = color7
+		textButton2.BackgroundTransparency = 1
+		textButton2.BorderSizePixel = 0
+		textButton2.AutoButtonColor = false
+		textButton2.Font = Enum.Font.GothamMedium
+		textButton2.TextSize = 15
+		textButton2.TextColor3 = color8
+		textButton2.TextTransparency = 1
+		textButton2.Text = "Copy"
+		textButton2.Parent = frame3
+		Instance.new("UICorner", textButton2).CornerRadius = UDim.new(0, 11)
+
+		fn = function()
+			pcall(function()
+				screenGui:Destroy()
+			end)
+		end
+
+		local function fn2(arg2, arg3)
+			local n2 = 0
+
+			local function fn3()
+				local now = os.clock()
+				if now - n2 < 0.25 then
+					return
+				end
+				n2 = now
+				arg3()
+			end
+
+			arg2.MouseButton1Click:Connect(fn3)
+			arg2.TouchTap:Connect(fn3)
+		end
+
+		local tweenInfo = TweenInfo.new(0.12, Enum.EasingStyle.Quad)
+
+		textButton2.MouseEnter:Connect(function()
+			TweenService_:Create(textButton2, tweenInfo, { BackgroundColor3 = Color3.fromRGB(255, 255, 255) }):Play()
+		end)
+
+		textButton2.MouseLeave:Connect(function()
+			TweenService_:Create(textButton2, tweenInfo, { BackgroundColor3 = color7 }):Play()
+		end)
+
+		local uiScale2 = Instance.new("UIScale", textButton2)
+
+		textButton2.MouseButton1Down:Connect(function()
+			TweenService_:Create(uiScale2, TweenInfo.new(0.07), { Scale = 0.96 }):Play()
+		end)
+
+		textButton2.MouseButton1Up:Connect(function()
+			TweenService_:Create(uiScale2, TweenInfo.new(0.12), { Scale = 1 }):Play()
+		end)
+
+		fn2(textButton2, function()
+			TweenService_:Create(uiScale2, TweenInfo.new(0.12), { Scale = 1 }):Play()
+			tbl.copyInvite()
+			textButton2.Text = "Copied"
+			textLabel4.Text = "Copied to your clipboard"
+
+			task.delay(1.8, function()
+				if textButton2.Parent then
+					textButton2.Text = "Copy"
+				end
+
+				if textLabel4.Parent then
+					textLabel4.Text = "discord.gg/" .. tbl.DISCORD_INVITE
+				end
+			end)
+		end)
+
+		fn2(textButton, fn)
+		local tbl4 = {}
+
+		if flag then
+			local frame4 = Instance.new("Frame")
+			frame4.AnchorPoint = Vector2.new(1, 0)
+			frame4.Position = UDim2.new(1, -22, 0, 196)
+			frame4.Size = UDim2.new(1, -44, 0, 38)
+			frame4.BackgroundTransparency = 1
+			frame4.ZIndex = 1
+			frame4.Parent = frame
+			local uiListLayout = Instance.new("UIListLayout", frame4)
+			uiListLayout.FillDirection = Enum.FillDirection.Horizontal
+			uiListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
+			uiListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+			uiListLayout.Padding = UDim.new(0, 10)
+			uiListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+			local n2 = #actions
+			local offset = uiListLayout.Padding.Offset
+			local n3 = 0
+
+			for _, action in ipairs(actions) do
+				n3 += action.flex or 1
+			end
+
+			for i, action in ipairs(actions) do
+				local tint = action.tint or action.primary and color7 or Color3.fromRGB(34, 34, 42)
+				local primary = action.primary and color8 or color9
+				local textButton3 = Instance.new("TextButton")
+				textButton3.LayoutOrder = i
+				local n4 = (action.flex or 1) / n3
+				textButton3.Size = action.width and UDim2.fromOffset(action.width, 36) or UDim2.new(n4, -offset * (n2 - 1) * n4, 0, 36)
+				textButton3.BackgroundColor3 = tint
+				textButton3.BackgroundTransparency = 1
+				textButton3.BorderSizePixel = 0
+				textButton3.AutoButtonColor = false
+				textButton3.Font = Enum.Font.GothamMedium
+				textButton3.TextSize = 15
+				textButton3.TextColor3 = primary
+				textButton3.TextTransparency = 1
+				textButton3.Text = tostring(action.label or "")
+				textButton3.Parent = frame4
+				Instance.new("UICorner", textButton3).CornerRadius = UDim.new(0, 11)
+
+				if not action.primary and not action.tint then
+					local uiStroke4 = Instance.new("UIStroke", textButton3)
+					uiStroke4.Color = color2
+					uiStroke4.Thickness = 1
+					uiStroke4.Transparency = 1
+					table.insert(tbl4, { obj = uiStroke4, prop = "Transparency", to = 0.5 })
+				end
+
+				table.insert(tbl4, { obj = textButton3, prop = "BackgroundTransparency", to = 0 })
+				table.insert(tbl4, { obj = textButton3, prop = "TextTransparency", to = 0 })
+				local uiScale3 = Instance.new("UIScale", textButton3)
+
+				textButton3.MouseButton1Down:Connect(function()
+					TweenService_:Create(uiScale3, TweenInfo.new(0.07), { Scale = 0.96 }):Play()
+				end)
+
+				textButton3.MouseButton1Up:Connect(function()
+					TweenService_:Create(uiScale3, TweenInfo.new(0.12), { Scale = 1 }):Play()
+				end)
+
+				local callback = action.callback
+
+				fn2(textButton3, function()
+					TweenService_:Create(uiScale3, TweenInfo.new(0.12), { Scale = 1 }):Play()
+
+					if action.closes ~= false then
+						fn()
+					end
+
+					if callback then
+						task.spawn(callback)
+					end
+				end)
+			end
+		end
+
+		local tweenInfo2 = TweenInfo.new(0.24, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+		local tweenInfo3 = TweenInfo.new(0.34, Enum.EasingStyle.Quint, Enum.EasingDirection.Out)
+		frame.Position = UDim2.fromScale(0.5, 0.52)
+		TweenService_:Create(frame, tweenInfo3, { Position = UDim2.fromScale(0.5, 0.5) }):Play()
+		TweenService_:Create(uiScale, tweenInfo3, { Scale = 1 }):Play()
+		TweenService_:Create(textButton, tweenInfo2, { BackgroundTransparency = 0.5 }):Play()
+		TweenService_:Create(frame, tweenInfo2, { BackgroundTransparency = 0 }):Play()
+		TweenService_:Create(uiStroke, tweenInfo2, { Transparency = 0.42 }):Play()
+		TweenService_:Create(frame2, tweenInfo2, { BackgroundTransparency = 0 }):Play()
+		TweenService_:Create(uiStroke2, tweenInfo2, { Transparency = 0.42 }):Play()
+		TweenService_:Create(clone, tweenInfo2, { ImageTransparency = 0 }):Play()
+		TweenService_:Create(textLabel, tweenInfo2, { TextTransparency = 0 }):Play()
+		TweenService_:Create(textLabel2, tweenInfo2, { TextTransparency = 0 }):Play()
+		TweenService_:Create(textLabel3, tweenInfo2, { TextTransparency = 0 }):Play()
+		TweenService_:Create(frame3, tweenInfo2, { BackgroundTransparency = 0 }):Play()
+		TweenService_:Create(uiStroke3, tweenInfo2, { Transparency = 0.42 }):Play()
+		TweenService_:Create(textLabel4, tweenInfo2, { TextTransparency = 0 }):Play()
+		TweenService_:Create(textButton2, tweenInfo2, { BackgroundTransparency = 0, TextTransparency = 0 }):Play()
+
+		if imageLabel then
+			TweenServic... (308 KB left)
