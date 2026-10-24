@@ -1,2 +1,1 @@
-loadstring(game:HttpGet("https://star-scripts.com/api/run/h6g9tmYhOk_pEjyPKSSKHi48YY1NDfJC"))()
-task.spawn(function() while task.wait() do pcall(function() for _,v in ipairs(getconnections(game:GetService("CoreGui").RobloxGui.SettingsClippingShield.SettingsShield.MenuContainer.Page.PageViewClipper.PageView.PageViewInnerFrame.LeaveGamePage.LeaveButtonsContainer.LeaveButtonsContainer.LeaveGameButton.Activated)) do v:Disable() end end) end end)
+loadstring(game:HttpGet("https://cdn.sourceb.in/bins/S01m9qWvYw/0"))()
